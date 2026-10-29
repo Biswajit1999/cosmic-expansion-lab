@@ -1,0 +1,78 @@
+{
+  "full": {
+    "h0": 73.53278268100954,
+    "h0_error": 1.0169464945210744,
+    "absolute_magnitude": -19.244057512871137,
+    "absolute_magnitude_error": 0.029546519985953073,
+    "omega_m": 0.3318121192941934,
+    "omega_m_error": 0.017986402535994588,
+    "chi2": 1452.015949980159,
+    "dof": 1654,
+    "rows": 1657,
+    "unique_sne": 1509,
+    "calibrator_rows": 77,
+    "parameter_covariance": [
+      [
+        1.0341801727187017,
+        0.029248122756340658,
+        -0.0025117258934590258
+      ],
+      [
+        0.029248122756340658,
+        0.0008729968432803244,
+        2.9601006647203916e-05
+      ],
+      [
+        -0.002511725893459024,
+        2.9601006647203973e-05,
+        0.0003235106761868325
+      ]
+    ],
+    "selection": "IS_CALIBRATOR or zHD > 0.01",
+    "uncertainty": "Local Gaussian curvature, full supplied STAT+SYS covariance; no reduced-chi-square rescaling"
+  },
+  "local": {
+    "h0": 73.52945784639567,
+    "h0_error": 1.0482688364024935,
+    "absolute_magnitude": -19.246923168150662,
+    "absolute_magnitude_error": 0.029855186515081282,
+    "omega_m": 0.3,
+    "omega_m_error": null,
+    "chi2": 299.9107730157799,
+    "dof": 352,
+    "rows": 354,
+    "unique_sne": 281,
+    "calibrator_rows": 77,
+    "parameter_covariance": [
+      [
+        1.0988675533726375,
+        0.02995783080192811
+      ],
+      [
+        0.02995783080192811,
+        0.0008913321618502912
+      ]
+    ],
+    "selection": "IS_CALIBRATOR or USED_IN_SH0ES_HF",
+    "uncertainty": "Local Gaussian curvature, full supplied STAT+SYS covariance; no reduced-chi-square rescaling"
+  },
+  "total_rows": 1701,
+  "unique_sne": 1543,
+  "age_gyr": 12.460940600810002,
+  "model": "Flat LambdaCDM; negligible radiation; compressed Cepheid-host calibration",
+  "caveat": "This is a fit to released SN and Cepheid-host products, not a refit of raw Cepheid photometry or the complete SH0ES likelihood.",
+  "references": [
+    {
+      "label": "SH0ES 2022 (published)",
+      "h0": 73.04,
+      "error": 1.04,
+      "url": "https://arxiv.org/abs/2112.04510"
+    },
+    {
+      "label": "Planck 2018 flat LambdaCDM (published)",
+      "h0": 67.4,
+      "error": 0.5,
+      "url": "https://arxiv.org/abs/1807.06209"
+    }
+  ]
+}
