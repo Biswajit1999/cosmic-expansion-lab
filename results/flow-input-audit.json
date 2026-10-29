@@ -1,0 +1,56 @@
+{
+  "status": "input inventory only; no Great Attractor or CMB inference",
+  "input_commit": "c447f0fea703fcd0fff57de5000947b5ca81286b",
+  "input_sha256": "1cb0fc379ef066afdc2ffd1857681cc478024570d8a3eba284fb645775198cf8",
+  "selection": "valid RA/DEC AND 0.005 < zCMB < 0.05 AND IS_CALIBRATOR == 0",
+  "selection_purpose": "exploratory inventory, not a preregistered science sample",
+  "total_light_curve_rows": 1701,
+  "valid_coordinate_rows": 1701,
+  "selected_light_curve_rows": 563,
+  "selected_distinct_literal_CID": 446,
+  "selected_survey_ids": {
+    "5": 65,
+    "15": 3,
+    "18": 11,
+    "50": 28,
+    "51": 36,
+    "56": 42,
+    "57": 91,
+    "61": 11,
+    "62": 20,
+    "63": 28,
+    "64": 48,
+    "65": 34,
+    "66": 10,
+    "150": 136
+  },
+  "redshift_bin_edges": [
+    0.005,
+    0.01,
+    0.02,
+    0.03,
+    0.05
+  ],
+  "redshift_bin_rows": [
+    38,
+    152,
+    197,
+    176
+  ],
+  "catalog_applied_source_correction": {
+    "definition": "c * ((1+zCMB)/(1+zHD)-1); first-order velocity equivalent, km/s",
+    "absolute_percentiles_16_50_84": [
+      46.99573379014276,
+      126.15675497880365,
+      251.27632211814296
+    ],
+    "interpretation": "Describes an existing model-based correction, not a new flow measurement."
+  },
+  "limitations": [
+    "Repeated light curves, host/group overlaps and shared calibrations are not independent.",
+    "Literal CID labels do not resolve physical supernova or host identity.",
+    "zCMB is observer-motion corrected; zHD also includes source-flow corrections.",
+    "The sky footprint is not a measured completeness or selection function.",
+    "No Cosmicflows distances, density reconstruction or Planck FITS maps are analyzed here."
+  ]
+}

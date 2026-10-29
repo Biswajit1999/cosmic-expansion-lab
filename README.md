@@ -12,6 +12,12 @@ The expanded project adds three credited Hubble observations, four computed scie
 
 The imagery is observational; the research figures are generated from the analysis. See [image credits and usage](web/assets/CREDITS.md). BAO, sirens and CMB are explained but are not fitted as additional raw datasets.
 
+## Great Attractor research direction
+
+The [research design and literature review](docs/GREAT_ATTRACTOR_RESEARCH_PLAN.md) asks whether independent distance tracers can distinguish localized convergence from external flows and calibration effects, and which additional observations would resolve the ambiguity. It explains the connection to the Planck CMB map and the limits of the current inputs. This is a proposed experiment, not a new attractor detection or a claim of established novelty.
+
+The completed [input audit](results/flow-input-audit.json) identifies 563 nearby non-calibrator light-curve records (446 distinct literal CID labels) in `0.005 < zCMB < 0.05`. Reproduce the inventory and [sampling figure](results/flow-input-footprint.png) with `python analysis/audit_flow_inputs.py` after downloading the inputs. Repeated records and shared calibration must be modeled before fitting flows.
+
 ## Explore locally
 
 The browser assets and derived dataset are checked in. No Node packages or build step are required.
