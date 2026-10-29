@@ -7,18 +7,18 @@ HUBBLE_GYR = 977.79222168  # Hubble time [Gyr] = this / H0 [km/s/Mpc]
 NODES, WEIGHTS = roots_legendre(64)
 
 
-def luminosity_distance(z, h0=70.0, omega_m=0.3, zhel=None):
+def luminosity_distance(z, h0=70.0, omega_m=0.3, zhel=None, w=-1.0):
     """Mpc. Integrate at zHD; use heliocentric redshift in photon prefactor."""
     z = np.asarray(z, dtype=float)
     if np.any(z <= 0) or h0 <= 0 or not 0 < omega_m <= 1:
         raise ValueError('Require z > 0, H0 > 0 and 0 < Omega_m <= 1')
     sample = z[..., None] * (NODES + 1) / 2
-    integral = z / 2 * np.sum(WEIGHTS / np.sqrt(omega_m * (1 + sample)**3 + 1 - omega_m), axis=-1)
+    integral = z / 2 * np.sum(WEIGHTS / np.sqrt(omega_m * (1 + sample)**3 + (1 - omega_m) * (1 + sample)**(3*(1+w))), axis=-1)
     return C / h0 * (1 + (z if zhel is None else np.asarray(zhel))) * integral
 
 
-def distance_modulus(z, h0=70.0, omega_m=0.3, zhel=None):
-    return 5 * np.log10(luminosity_distance(z, h0, omega_m, zhel)) + 25
+def distance_modulus(z, h0=70.0, omega_m=0.3, zhel=None, w=-1.0):
+    return 5 * np.log10(luminosity_distance(z, h0, omega_m, zhel, w)) + 25
 
 
 def age_at_scale(a, h0=70.0, omega_m=0.3):
