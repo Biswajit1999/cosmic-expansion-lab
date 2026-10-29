@@ -22,7 +22,7 @@ Open http://localhost:8000. Use HTTP rather than opening `index.html` directly, 
 
 ## Reproduce the science
 
-Python 3.10+ is recommended. The tested environment used Python 3.10, NumPy 1.26.4 and SciPy 1.10.1.
+Python 3.10+ is recommended. The tested environment used Python 3.9.19, NumPy 1.26.4 and SciPy 1.10.1.
 
 ```sh
 python -m venv .venv
