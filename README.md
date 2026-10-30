@@ -14,6 +14,10 @@ The imagery is observational; the research figures are generated from the analys
 
 ## Great Attractor research direction
 
+**[Open the Great Attractor simulation](https://biswajit1999.github.io/cosmic-expansion-lab/great-attractor.html)** · [Model, validation and reuse](docs/SIMULATION.md)
+
+Version 3 adds a reproducible 3D test-particle experiment in an expanding background, with local and distant prescribed potentials, physical/comoving views, radial-velocity diagnostics, shareable parameter links and JSON/CSV/PNG exports. Its synthetic inputs are explicitly separate from observational data. Seven numerical test groups and an independent SciPy integration check validate the implementation. This is a model demonstrator, not a measured reconstruction of the Great Attractor.
+
 The [research design and literature review](docs/GREAT_ATTRACTOR_RESEARCH_PLAN.md) asks whether independent distance tracers can distinguish localized convergence from external flows and calibration effects, and which additional observations would resolve the ambiguity. It explains the connection to the Planck CMB map and the limits of the current inputs. This is a proposed experiment, not a new attractor detection or a claim of established novelty.
 
 The completed [input audit](results/flow-input-audit.json) identifies 563 nearby non-calibrator light-curve records (446 distinct literal CID labels) in `0.005 < zCMB < 0.05`. Reproduce the inventory and [sampling figure](results/flow-input-footprint.png) with `python analysis/audit_flow_inputs.py` after downloading the inputs. Repeated records and shared calibration must be modeled before fitting flows.

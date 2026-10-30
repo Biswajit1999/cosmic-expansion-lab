@@ -1,0 +1,87 @@
+{
+  "model_version": "1.0.0",
+  "status": "pass",
+  "comparison": "JavaScript RK4 dt=0.01 Gyr against independent SciPy DOP853, rtol=2e-12, atol=1e-13",
+  "interval_gyr": [
+    0,
+    6
+  ],
+  "cases": [
+    {
+      "parameters": {
+        "h0": 70,
+        "omega": 0.3,
+        "mass": 5,
+        "soft": 12,
+        "external": 10,
+        "distance": 70,
+        "seed": 2026
+      },
+      "tested_particles": 5,
+      "max_position_component_error_mpc": 1.7053025658242404e-13,
+      "max_velocity_component_error_kms": 1.6898553368624845e-10,
+      "max_scale_factor_error": 1.3322676295501878e-15
+    },
+    {
+      "parameters": {
+        "h0": 70,
+        "omega": 0.3,
+        "mass": 0,
+        "soft": 12,
+        "external": 0,
+        "distance": 70,
+        "seed": 2026
+      },
+      "tested_particles": 5,
+      "max_position_component_error_mpc": 0.0,
+      "max_velocity_component_error_kms": 0.0,
+      "max_scale_factor_error": 5.284661597215745e-14
+    },
+    {
+      "parameters": {
+        "h0": 70,
+        "omega": 0.3,
+        "mass": 10,
+        "soft": 5,
+        "external": 30,
+        "distance": 70,
+        "seed": 2026
+      },
+      "tested_particles": 5,
+      "max_position_component_error_mpc": 1.3169199064577697e-10,
+      "max_velocity_component_error_kms": 2.240822741593039e-07,
+      "max_scale_factor_error": 8.881784197001252e-16
+    },
+    {
+      "parameters": {
+        "h0": 55,
+        "omega": 0.4,
+        "mass": 0,
+        "soft": 12,
+        "external": 30,
+        "distance": 70,
+        "seed": 2026
+      },
+      "tested_particles": 5,
+      "max_position_component_error_mpc": 1.2789769243681803e-13,
+      "max_velocity_component_error_kms": 1.3569592972617465e-12,
+      "max_scale_factor_error": 2.6645352591003757e-15
+    },
+    {
+      "parameters": {
+        "h0": 85,
+        "omega": 0.2,
+        "mass": 10,
+        "soft": 12,
+        "external": 0,
+        "distance": 40,
+        "seed": 2026
+      },
+      "tested_particles": 5,
+      "max_position_component_error_mpc": 6.942002528376179e-12,
+      "max_velocity_component_error_kms": 1.8943803130236667e-08,
+      "max_scale_factor_error": 3.9968028886505635e-15
+    }
+  ],
+  "interpretation": "Numerical agreement for these test cases only; not observational validation."
+}

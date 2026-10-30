@@ -2,8 +2,8 @@ cff-version: 1.2.0
 message: "Please cite the original Pantheon+ and SH0ES publications when using their data; cite this repository for its educational analysis and interface."
 title: "Cosmic Expansion Lab"
 type: software
-version: 2.0.0
-date-released: 2026-10-29
+version: 3.0.0
+date-released: 2026-10-30
 authors:
   - family-names: Jana
     given-names: Biswajit
