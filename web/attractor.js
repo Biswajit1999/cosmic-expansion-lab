@@ -3,7 +3,7 @@
   const M=window.AttractorModel,$=id=>document.getElementById(id);
   const inputs=[...document.querySelectorAll('[data-model]')];
   let frames=[],generation=0,busy=true,playing=false,lastTick=0,clock=3;
-  let c=M.config(),view={time:3,yaw:-18,pitch:25,coordinates:'comoving',arrows:'peculiar',probe:30};
+  let c=M.config(),view={time:3,yaw:-18,pitch:25,coordinates:'comoving',arrows:'peculiar',probe:30,style:'particles'};
   const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
   const number=(x,d=0)=>Number(x).toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d});
   const signed=x=>(x>=0?'+':'−')+number(Math.abs(x));
@@ -19,6 +19,7 @@
     view.time=Math.round(view.time/.05)*.05;view.probe=Math.round(view.probe);
     if(['physical','comoving'].includes(q.get('coordinates')))view.coordinates=q.get('coordinates');
     if(['off','peculiar','total'].includes(q.get('arrows')))view.arrows=q.get('arrows');
+    if(['particles','golden'].includes(q.get('style')))view.style=q.get('style');
   }
   function syncInputs(){for(const input of inputs)input.value=c[input.id];for(const key of Object.keys(view))$(key).value=view[key];labels();}
   function labels(){
@@ -68,13 +69,20 @@
     g.font='10px Arial';g.fillStyle='#8faeb4';
     for(const x of [-100,0,100,200]){const p=projectRaw([x,-100,0]);g.fillText(x+'',p[0]-8,p[1]+16);}
     const xl=projectRaw([250,-100,0]);g.fillText('x / Mpc',xl[0]-30,xl[1]+16);
-    // Trails follow each stored trajectory in the selected coordinate system.
-    const end=Math.round(view.time/.05),trailIds=[0,M.PROBE_START+view.probe,...Array.from({length:24},(_,i)=>1+i*19)];
+    // Golden paths are actual integrated trajectories, never an invented velocity field.
+    const golden=view.style==='golden';
+    const end=Math.round(view.time/.05),trailIds=[0,M.PROBE_START+view.probe,...Array.from({length:golden?M.COUNT:24},(_,i)=>golden?i+1:1+i*19)];
+    if(golden){
+      g.strokeStyle='rgba(224,175,91,.17)';g.lineWidth=.8;
+      for(const i of trailIds){g.beginPath();for(let k=0;k<frames.length;k+=2){const frame=frames[k],f=view.coordinates==='physical'?frame.a:1,p=projectRaw(point(frame,i).map(v=>v*f));if(k===0)g.moveTo(p[0],p[1]);else g.lineTo(p[0],p[1]);}g.stroke();}
+      g.shadowColor='#e1b465';g.shadowBlur=3;
+    }
     for(const i of trailIds){g.beginPath();for(let k=0;k<=end;k+=2){const frame=frames[k],f=view.coordinates==='physical'?frame.a:1,p=projectRaw(point(frame,i).map(v=>v*f));if(k===0)g.moveTo(p[0],p[1]);else g.lineTo(p[0],p[1]);}
-      const endpoint=project(point(s,i));g.lineTo(endpoint[0],endpoint[1]);g.strokeStyle=i===0?'#f0ddae':i>=M.PROBE_START?'#e5a36e':'#416b70';g.lineWidth=i>=M.PROBE_START?1.5:.8;g.stroke();}
+      const endpoint=project(point(s,i));g.lineTo(endpoint[0],endpoint[1]);g.strokeStyle=i===0?'#f0ddae':i>=M.PROBE_START?'#e5a36e':golden?'rgba(240,193,112,.65)':'#416b70';g.lineWidth=i>=M.PROBE_START?1.5:.8;g.stroke();}
+    g.shadowBlur=0;
     const particles=Array.from({length:M.COUNT},(_,j)=>{const i=j+1;return {i,p:project(point(s,i))};}).sort((a,b)=>a.p[2]-b.p[2]);
     for(const {i,p} of particles){
-      const opacity=clamp(.55+p[2]/300,.22,.9);g.fillStyle=`rgba(133,199,190,${opacity})`;g.beginPath();g.arc(p[0],p[1],1.4+opacity*.8,0,Math.PI*2);g.fill();
+      const opacity=clamp(.55+p[2]/300,.22,.9);g.fillStyle=golden?`rgba(250,217,156,${opacity})`:`rgba(133,199,190,${opacity})`;g.beginPath();g.arc(p[0],p[1],golden?1.2:1.4+opacity*.8,0,Math.PI*2);g.fill();
       if(view.arrows!=='off'&&i%13===0){let u=Array.from(s.p.slice(i*6+3,i*6+6));if(view.arrows==='total')u=u.map((v,j)=>v+M.hubble(s.a,c)*s.a*s.p[i*6+j]);
         const speed=Math.hypot(...u);if(speed>1e-10){const origin=point(s,i).map(v=>v*factor),length=5*Math.log1p(speed/M.KMS_TO_MPC_GYR/100),q=projectRaw(origin.map((v,j)=>v+u[j]/speed*length));
           const dx=q[0]-p[0],dy=q[1]-p[1],angle=Math.atan2(dy,dx);g.strokeStyle='#6eaaa5';g.lineWidth=.8;g.beginPath();g.moveTo(p[0],p[1]);g.lineTo(q[0],q[1]);g.lineTo(q[0]-3*Math.cos(angle-.5),q[1]-3*Math.sin(angle-.5));g.moveTo(q[0],q[1]);g.lineTo(q[0]-3*Math.cos(angle+.5),q[1]-3*Math.sin(angle+.5));g.stroke();}}
@@ -93,6 +101,7 @@
     const observer=project(point(s,0));g.strokeStyle='#f3e6bf';g.lineWidth=1.5;g.beginPath();g.moveTo(observer[0]-5,observer[1]);g.lineTo(observer[0]+5,observer[1]);g.moveTo(observer[0],observer[1]-5);g.lineTo(observer[0],observer[1]+5);g.stroke();g.fillStyle='#f3e6bf';g.font='11px Arial';g.fillText('OBSERVER',observer[0]+10,observer[1]+18);
     const probe=project(point(s,M.PROBE_START+view.probe));g.strokeStyle='#efbc88';g.lineWidth=1.7;g.beginPath();g.arc(probe[0],probe[1],5,0,Math.PI*2);g.stroke();
     g.fillStyle='#c3d6d5';g.font='11px Arial';g.fillText('Great Attractor sandbox · model '+M.VERSION+' · t = '+s.t.toFixed(2)+' Gyr',16,22);
+    if(golden){g.font='10px Arial';g.fillStyle='#ecc88f';g.fillText('Golden paths: 0–6 Gyr · bright = elapsed time',16,38);}
     g.font='10px Arial';g.fillStyle='#9db9bd';
     const metadata=`H₀ ${c.h0} · Ωm ${c.omega} · Mlocal ${c.mass} · Mext ${c.external} [10¹⁶ M☉] · b ${c.soft} Mpc · seed ${c.seed}`;
     if(w<560){g.fillText(`H₀ ${c.h0} · Ωm ${c.omega} · Mlocal ${c.mass} · Mext ${c.external} [10¹⁶ M☉]`,16,h-40);g.fillText(`b ${c.soft} Mpc · seed ${c.seed} · ${view.coordinates} coordinates`,16,h-25);}else g.fillText(metadata,16,h-28);
@@ -121,6 +130,8 @@
     $('scale').textContent=number(s.a,3);$('hubble').textContent=number(M.hubble(s.a,c)/M.KMS_TO_MPC_GYR,1);
     $('observer-speed').textContent=number(Math.hypot(s.p[3],s.p[4],s.p[5])/M.KMS_TO_MPC_GYR);
     $('coordinate-label').textContent=(view.coordinates==='physical'?'Physical':'Comoving')+' Mpc · arbitrary axes';
+    $('trail-note').textContent=view.style==='golden'?'Golden view: faint paths show the complete 0–6 Gyr model trajectories; bright segments show elapsed time. These are synthetic paths, not reconstructed Laniakea streamlines.':'Particle view: a subset of integrated trajectories is shown up to the selected time.';
+    $('flow').closest('.stage').classList.toggle('golden',view.style==='golden');
     const r=M.radial(s,M.PROBE_START+view.probe);
     $('probe-distance').textContent=number(r.distance,2)+' Mpc';
     for(const key of ['expansion','peculiar','total'])$('probe-'+key).textContent=signed(r[key])+' km/s';
@@ -133,7 +144,7 @@
     parameters:{...c},parameter_units:{h0:'km/s/Mpc',omega:'dimensionless',mass:'1e16 solar masses',external:'1e16 solar masses',soft:'physical Mpc',distance:'comoving Mpc'},
     integration:{method:'RK4',step_gyr:M.STEP,snapshot_step_gyr:M.SNAPSHOT_STEP,initial_scale_factor:1,initial_peculiar_velocity:'zero',particle_count:522},
     time_gyr:s.t,scale_factor:s.a,view:{...view},sources:M.sources(c),experiment_url:shareURL(),
-    source_release:'v3.0.0',source_repository:'https://github.com/Biswajit1999/cosmic-expansion-lab',methods_url:'https://github.com/Biswajit1999/cosmic-expansion-lab/blob/main/docs/SIMULATION.md',
+    source_release:'v3.0.0',interface_release:'3.2.0',source_repository:'https://github.com/Biswajit1999/cosmic-expansion-lab',methods_url:'https://github.com/Biswajit1999/cosmic-expansion-lab/blob/main/docs/SIMULATION.md',
     coordinate_convention:'Arbitrary background axes; absolute comoving coordinates and physical peculiar velocities. Radial columns subtract the moving observer.',
     particles:M.rows(s)};}
   inputs.forEach(input=>{
@@ -143,10 +154,11 @@
   document.querySelectorAll('[data-preset]').forEach(button=>button.addEventListener('click',()=>{
     c=M.config({...c,mass:button.dataset.preset==='expansion'?0:5,external:button.dataset.preset==='both'?10:0});syncInputs();rebuild().catch(fail);
   }));
-  $('defaults').addEventListener('click',()=>{c=M.config();view={time:3,yaw:-18,pitch:25,coordinates:'comoving',arrows:'peculiar',probe:30};syncInputs();rebuild().catch(fail);});
-  for(const key of ['yaw','pitch','coordinates','arrows','probe'])$(key).addEventListener('input',()=>{view[key]=['coordinates','arrows'].includes(key)?$(key).value:Number($(key).value);if(!busy)render();});
+  $('defaults').addEventListener('click',()=>{c=M.config();view={time:3,yaw:-18,pitch:25,coordinates:'comoving',arrows:'peculiar',probe:30,style:'particles'};syncInputs();rebuild().catch(fail);});
+  for(const key of ['yaw','pitch','coordinates','arrows','probe','style'])$(key).addEventListener('input',()=>{view[key]=['coordinates','arrows','style'].includes(key)?$(key).value:Number($(key).value);if(!busy)render();});
   $('time').addEventListener('input',()=>{setPlaying(false);view.time=Number($('time').value);render();});
   $('rewind').addEventListener('click',()=>{setPlaying(false);view.time=0;render();});
+  $('golden-demo').addEventListener('click',()=>{setPlaying(false);view.style='golden';view.time=6;syncInputs();if(!busy)render();});
   $('play').addEventListener('click',()=>{if(view.time>=6){view.time=0;render();}setPlaying(!playing);});
   $('copy').addEventListener('click',async()=>{setPlaying(false);const url=shareURL();$('share-url').value=url;try{await navigator.clipboard.writeText(url);history.replaceState(null,'',url);$('share-status').textContent='Experiment link copied. Anyone with the link can reproduce this state.';}catch{$('share-url').focus();$('share-url').select();$('share-status').textContent='Select and copy the experiment URL above.';}});
   $('json').addEventListener('click',()=>{setPlaying(false);download(new Blob([JSON.stringify(metadata(),null,2)],{type:'application/json'}),'great-attractor-state.json');$('share-status').textContent='State JSON downloaded with parameters, units and all 522 particles.';});

@@ -4,6 +4,8 @@ Version 3.1 adds an observation workbench to the [public Great Attractor page](h
 
 ## What has actually been implemented
 
+Release 3.2 also displays a credited historical Laniakea reconstruction, with its [own provenance record](../web/data/reconstruction.json) and original paper link. It is separate from the eight telescope-image views. The numeric reconstructed field and its uncertainties have not been ingested. A golden rendering of the existing model shows integrated trajectories, not a reproduction of that published field.
+
 - Norma / Abell 3627: a Hubble ACS view containing ESO 137-002 and an ESO WFI view of the wider environment.
 - Abell 2744: Hubble and JWST views of a distant gravitational lens. They differ in field, orientation, filters and processing; they are not registered overlays.
 - Bullet Cluster: JWST starlight, Chandra hot-gas emission, and the publisher's combined image including a **lensing-inferred** mass distribution. The standalone X-ray JPEG has a different crop. No cross-frame offset measurement is supported.

@@ -2,6 +2,8 @@
 
 Released 30 October 2026 · simulation model **1.0.0** · project release **v3.0.0**
 
+Interface update 31 October 2026 · project **v3.2.0**. The numerical model remains 1.0.0. The Rendering control now offers **Golden trajectories**: all 480 tracers plus the observer and selected probe have faint complete 0–6 Gyr paths, with elapsed segments highlighted. A path follows its integrated positions and the corresponding scale factor in physical-coordinate mode. These are not instantaneous streamlines or measured Laniakea orbits. Links and JSON preserve `view.style`; old links default to the particle view on a fresh load. PNGs label both the synthetic origin and future-path convention. The JSON `source_release` continues to pin the numerical implementation, while `interface_release` identifies the renderer.
+
 [Open the public simulation](https://biswajit1999.github.io/cosmic-expansion-lab/great-attractor.html)
 
 ## Purpose and scientific status

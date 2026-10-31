@@ -87,3 +87,11 @@ Third-party image terms apply separately from the software MIT license. Full cre
 - [Publisher JPEG](https://cdn.esahubble.org/archives/images/screen/opo9919i.jpg); no pixel modifications.
 
 The machine-readable [manifest](../data/observations.json) pins every image checksum and dimension. Inferred overlays are labeled as such. Different crops and fields are not treated as registered measurements.
+
+## Published Laniakea reconstruction (release 3.2)
+
+- File: `observations/laniakea-boundaries.jpg`
+- Credit: R. Brent Tully (U. Hawaii) et al., SDvision, DP, CEA/Saclay.
+- [Distribution and CC BY 4.0 declaration](https://commons.wikimedia.org/wiki/File:LaniakeaBoundaries.jpg), [license](https://creativecommons.org/licenses/by/4.0/), [NASA APOD source](https://apod.nasa.gov/apod/ap140910.html).
+- [Original paper](https://doi.org/10.1038/nature13674). This is a rendered published reconstruction, not a telescope photograph or an analysis performed by this repository.
+- No pixel modifications. File checksum, dimensions and limitations are in [reconstruction.json](../data/reconstruction.json). No endorsement is implied.

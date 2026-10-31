@@ -11,6 +11,18 @@ WEB = ROOT / 'web'
 
 
 class ObservationTests(unittest.TestCase):
+    def test_published_reconstruction_provenance(self):
+        record = json.loads((WEB / 'data/reconstruction.json').read_text(encoding='utf-8'))
+        self.assertEqual(record['kind'], 'published_velocity_reconstruction')
+        data = (WEB / record['file']).read_bytes()
+        self.assertEqual(hashlib.sha256(data).hexdigest(), record['sha256'])
+        self.assertEqual(len(data), record['bytes'])
+        with Image.open(WEB / record['file']) as image:
+            self.assertEqual(image.size, (record['width'], record['height']))
+            image.verify()
+        self.assertIn('not a telescope photograph', record['limitations'])
+        self.assertTrue(record['paper'].startswith('https://doi.org/'))
+
     @classmethod
     def setUpClass(cls):
         cls.catalog = json.loads((WEB / 'data/observations.json').read_text(encoding='utf-8'))

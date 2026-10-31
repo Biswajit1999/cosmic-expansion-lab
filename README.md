@@ -14,6 +14,8 @@ The imagery is observational; the research figures are generated from the analys
 
 ## Great Attractor research direction
 
+**Version 3.2: [Published Laniakea reconstruction](https://biswajit1999.github.io/cosmic-expansion-lab/great-attractor.html#reconstruction)** and a golden-trajectory rendering option. The credited 2014 basin visualization is separate from the telescope images and our synthetic trajectories. Golden mode shows all 480 tracer paths over 0–6 Gyr, with elapsed segments highlighted; sharing and exports preserve the selected rendering. The numerical solver is unchanged.
+
 **Version 3.1: [Explore real telescope observations](https://biswajit1999.github.io/cosmic-expansion-lab/great-attractor.html#observations)** · [Evidence requirements and roadmap](docs/OBSERVATIONS.md)
 
 Eight credited Hubble, JWST, ESO and Chandra views cover Norma, Abell 2744, the Bullet Cluster and SN 1994D. Switch between emitted light and an explicitly labeled lensing-inferred mass overlay; share an object/layer link and export source metadata with file checksums. Each view distinguishes observations, inference and the next required measurement. Images remain separate from synthetic trajectories; the release does not claim a measured flow or a new dark-matter result.

@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0.0",
+  "release": "3.2.0",
+  "kind": "published_velocity_reconstruction",
+  "file": "assets/observations/laniakea-boundaries.jpg",
+  "title": "Laniakea basin boundary visualization (2014)",
+  "authors": [
+    "R. Brent Tully",
+    "Helene Courtois",
+    "Yehuda Hoffman",
+    "Daniel Pomarede"
+  ],
+  "credit": "R. Brent Tully (U. Hawaii) et al., SDvision, DP, CEA/Saclay",
+  "paper": "https://doi.org/10.1038/nature13674",
+  "preprint": "https://arxiv.org/abs/1409.0880",
+  "source": "https://apod.nasa.gov/apod/ap140910.html",
+  "distribution_source": "https://commons.wikimedia.org/wiki/File:LaniakeaBoundaries.jpg",
+  "license": "CC BY 4.0, as listed on the distribution source",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "download": "https://upload.wikimedia.org/wikipedia/commons/8/80/LaniakeaBoundaries.jpg",
+  "width": 1200,
+  "height": 674,
+  "bytes": 208906,
+  "sha256": "35fdeb9a49c995e761fb6e208cfab2596ea2edfd434cf264aeb1643cee7d41f7",
+  "verified_on": "2026-10-31",
+  "pixel_modifications": "None; unmodified distributed JPEG",
+  "limitations": "Published rendered reconstruction, not a telescope photograph or a new fit by this project. No numerical reconstructed field or posterior has been ingested. Flow-basin boundaries depend on reconstruction and flow decomposition; they are not guaranteed future bound regions."
+}
