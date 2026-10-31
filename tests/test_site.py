@@ -1,6 +1,7 @@
 """Check local asset links and unique HTML IDs without requiring a browser."""
 from html.parser import HTMLParser
 from pathlib import Path
+from urllib.parse import urlsplit, unquote
 import unittest
 ROOT=Path(__file__).resolve().parents[1]/'web'
 
@@ -16,13 +17,17 @@ class Page(HTMLParser):
 
 class SiteTests(unittest.TestCase):
     def test_links_and_ids(self):
-        page=Page();page.feed((ROOT/'index.html').read_text(encoding='utf8'))
-        self.assertEqual(len(page.ids),len(set(page.ids)))
-        for link in page.links:
-            if link.startswith(('https:','http:','mailto:')):continue
-            if link.startswith('#'):
-                if link!='#':self.assertIn(link[1:],page.ids)
-            else:self.assertTrue((ROOT/link).is_file(),link)
+        for source in ROOT.glob('*.html'):
+            page=Page();page.feed(source.read_text(encoding='utf8'))
+            self.assertEqual(len(page.ids),len(set(page.ids)),source.name)
+            for link in page.links:
+                parsed=urlsplit(link)
+                if parsed.scheme or parsed.netloc:continue
+                destination=source.parent/unquote(parsed.path) if parsed.path else source
+                self.assertTrue(destination.is_file(),link)
+                if parsed.fragment and destination.suffix=='.html':
+                    other=Page();other.feed(destination.read_text(encoding='utf8'))
+                    self.assertIn(unquote(parsed.fragment),other.ids,link)
 
 
 if __name__=='__main__':unittest.main()

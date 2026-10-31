@@ -14,6 +14,10 @@ The imagery is observational; the research figures are generated from the analys
 
 ## Great Attractor research direction
 
+**Version 3.1: [Explore real telescope observations](https://biswajit1999.github.io/cosmic-expansion-lab/great-attractor.html#observations)** · [Evidence requirements and roadmap](docs/OBSERVATIONS.md)
+
+Eight credited Hubble, JWST, ESO and Chandra views cover Norma, Abell 2744, the Bullet Cluster and SN 1994D. Switch between emitted light and an explicitly labeled lensing-inferred mass overlay; share an object/layer link and export source metadata with file checksums. Each view distinguishes observations, inference and the next required measurement. Images remain separate from synthetic trajectories; the release does not claim a measured flow or a new dark-matter result.
+
 **[Open the Great Attractor simulation](https://biswajit1999.github.io/cosmic-expansion-lab/great-attractor.html)** · [Model, validation and reuse](docs/SIMULATION.md)
 
 Version 3 adds a reproducible 3D test-particle experiment in an expanding background, with local and distant prescribed potentials, physical/comoving views, radial-velocity diagnostics, shareable parameter links and JSON/CSV/PNG exports. Its synthetic inputs are explicitly separate from observational data. Seven numerical test groups and an independent SciPy integration check validate the implementation. This is a model demonstrator, not a measured reconstruction of the Great Attractor.

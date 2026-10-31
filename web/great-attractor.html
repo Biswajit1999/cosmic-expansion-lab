@@ -3,19 +3,45 @@
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Great Attractor — Cosmic Expansion Lab</title>
-  <meta name="description" content="An open, reproducible Great Attractor test-particle simulation. Explore expansion, peculiar velocities and external attraction; share parameters and export results.">
+  <meta name="description" content="Explore real Hubble, JWST, ESO and Chandra observations alongside a reproducible Great Attractor simulation. Distinguish observed light, inferred mass and model predictions.">
   <meta property="og:title" content="Great Attractor · An open simulation laboratory">
-  <meta property="og:description" content="Explore gravity in an expanding universe. Adjustable model, reproducible parameters and downloadable synthetic data.">
+  <meta property="og:description" content="Real telescope observations, explicitly labeled inferred mass, and reproducible gravity experiments in an expanding universe.">
   <meta property="og:type" content="website">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="attractor.css">
+  <link rel="stylesheet" href="attractor.css"><link rel="stylesheet" href="observations.css">
+  <script src="observations.js" defer></script>
   <script src="attractor-model.js" defer></script><script src="attractor.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#simulation">Skip to simulation</a>
-<header><a class="brand" href="index.html"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="3"/><ellipse cx="20" cy="20" rx="18" ry="8" fill="none" stroke="currentColor"/><ellipse cx="20" cy="20" rx="8" ry="18" fill="none" stroke="currentColor" transform="rotate(35 20 20)"/></svg><span>COSMIC<small>EXPANSION LAB</small></span></a><nav aria-label="Main"><a href="index.html">Expansion lab</a><a href="#methods">Methods</a><a href="#share">Share & export</a></nav><span class="edition">MODEL 1.0 / OPEN SOURCE</span></header>
+<header><a class="brand" href="index.html"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="3"/><ellipse cx="20" cy="20" rx="18" ry="8" fill="none" stroke="currentColor"/><ellipse cx="20" cy="20" rx="8" ry="18" fill="none" stroke="currentColor" transform="rotate(35 20 20)"/></svg><span>COSMIC<small>EXPANSION LAB</small></span></a><nav aria-label="Main"><a href="index.html">Expansion lab</a><a href="#observations">Observations</a><a href="#simulation">Simulation</a><a href="#methods">Methods</a></nav><span class="edition">RELEASE 3.1 / OPEN SOURCE</span></header>
 <main>
-  <section class="intro"><div><p class="eyebrow">GRAVITY IN AN EXPANDING UNIVERSE</p><h1>The Great <em>Attractor.</em></h1></div><div class="intro-copy"><p>Space expands. Structure pulls.<br>Follow both motions at once.</p><p>Evolve synthetic tracers around a local mass concentration and a more distant structure. Change the assumptions. Share the experiment.</p></div></section>
+  <section class="intro"><div><p class="eyebrow">GRAVITY IN AN EXPANDING UNIVERSE</p><h1>The Great <em>Attractor.</em></h1></div><div class="intro-copy"><p>Space expands. Structure pulls.<br>What does the evidence show?</p><p>Explore real telescope observations, then experiment with a gravitational model. Connect what we see to what we can test.</p></div></section>
+  <div class="mode-links"><a href="#observations">Explore telescope observations ↓</a><a href="#simulation">Run the gravity simulation ↓</a></div>
+  <section id="observations" class="observations" aria-labelledby="observations-title">
+    <div class="section-head"><div><p class="eyebrow">THE OBSERVATION WORKBENCH / 4 SYSTEMS · 8 VIEWS</p><h2 id="observations-title">Look at the evidence.</h2></div><p>Real telescope images. Read what emits light, what is inferred, and what measurement comes next.</p></div>
+    <p id="obs-loading" role="status">Loading the credited observation catalog…</p>
+    <div id="obs-workbench" hidden>
+      <div id="obs-targets" class="obs-targets" role="group" aria-label="Choose an observed system"></div>
+      <div class="obs-layout">
+        <div class="obs-media">
+          <div id="obs-layers" class="obs-layers" role="group" aria-label="Choose telescope or evidence layer"></div>
+          <figure class="obs-figure">
+            <div class="obs-image-top"><span id="obs-kind"></span><span id="obs-instrument"></span></div>
+            <div class="obs-image-frame"><img id="obs-image" alt="" decoding="async"></div>
+            <figcaption><span id="obs-caption"></span><div class="obs-credit"><p>Credit: <span id="obs-credit"></span></p><a id="obs-source" href="data/observations.json">Original release ↗</a><a id="obs-original" href="data/observations.json" target="_blank" rel="noopener">Open full image ↗</a><a id="obs-usage" href="assets/CREDITS.md">Image-use terms ↗</a></div></figcaption>
+          </figure>
+          <p id="obs-status" class="obs-status" role="status" aria-live="polite"></p>
+          <p id="obs-comparison" class="obs-comparison"></p>
+          <details class="obs-details"><summary>Pointing, wavelengths & provenance</summary><dl><div><dt>Bands / display</dt><dd id="obs-bands"></dd></div><div><dt>Field of view</dt><dd id="obs-field"></dd></div><div><dt>Sky reference</dt><dd id="obs-centre"></dd></div><div><dt>Release date</dt><dd id="obs-date"></dd></div><div><dt>Stored image</dt><dd id="obs-pixels"></dd></div><div><dt>Reuse</dt><dd id="obs-license"></dd></div></dl><p class="help">Full publisher frames, unmodified JPEGs. Release dates are not necessarily observation dates. Display colours encode wavelength or an inferred quantity; these are not raw science exposures.</p></details>
+        </div>
+        <div class="obs-reading"><p class="eyebrow" id="obs-category"></p><p id="obs-object"></p><h3 id="obs-title"></h3><p id="obs-context"></p><p class="obs-question" id="obs-question"></p><ol class="obs-evidence"><li><span>01 / OBSERVED</span><p id="obs-observed"></p></li><li><span>02 / INFERRED</span><p id="obs-inferred"></p></li><li><span>03 / THE NEXT MEASUREMENT</span><p id="obs-next"></p></li></ol><a id="obs-research" href="https://github.com/Biswajit1999/cosmic-expansion-lab/blob/main/docs/OBSERVATIONS.md">Research notes ↗</a></div>
+      </div>
+      <div class="obs-share"><div><div class="export-buttons"><button id="obs-copy" disabled>Copy observation link</button><button id="obs-export" disabled>Download provenance · JSON</button></div><p class="help">Includes source URLs, credits, image dimensions and SHA-256 checksums. No simulated particle is identified as one of these galaxies.</p></div><div><label for="obs-url">Share this object and layer</label><input id="obs-url" type="text" readonly spellcheck="false"><p id="obs-share-status" class="help" role="status"></p></div></div>
+    </div>
+    <div class="obs-bridge"><div><p class="eyebrow">FROM AN IMAGE TO A TEST</p><h3>What would change our conclusion?</h3><p>The research question is whether independent distance tracers can distinguish local convergence from distant gravitational influence and calibration errors.</p><a href="https://github.com/Biswajit1999/cosmic-expansion-lab/blob/main/docs/OBSERVATIONS.md">Evidence requirements & research roadmap ↗</a></div><div><p><strong>To measure the flow:</strong> join galaxy identities, redshifts and independent distances; propagate uncertainties; compare predictions on held-out objects. The images above provide context, not fitted flow constraints.</p><p><strong>To connect to Planck:</strong> the oval CMB map shows early-universe temperature fluctuations, not today's local mass. A kinetic Sunyaev–Zeldovich test would need gas physics and microwave maps with foreground, beam and noise treatment.</p><p><strong>To study dark energy:</strong> use the population distance–redshift relation in the <a href="index.html#laboratory">expansion lab</a>. There is no direct dark-energy photograph.</p></div></div>
+    <p class="help"><a href="data/observations.json">Complete machine-readable catalog</a> · <a href="assets/CREDITS.md">All image credits</a> · <a href="https://science.nasa.gov/dark-energy/">NASA: dark energy</a></p>
+  </section>
   <div class="scope"><span class="scope-label">MODEL EXPERIMENT</span><p>Prescribed gravitational potentials in flat ΛCDM. <strong>Not an observational reconstruction or a forecast of our actual neighbourhood.</strong></p><a href="#methods">Read the assumptions ↓</a></div>
   <section id="simulation" aria-labelledby="sim-title">
     <div class="section-head"><h2 id="sim-title">A field of possibilities.</h2><div class="presets" role="group" aria-label="Model presets"><button data-preset="expansion">Expansion only</button><button data-preset="local">Local attraction</button><button data-preset="both" aria-pressed="true">Local + distant</button></div></div>

@@ -16,5 +16,6 @@ jobs:
       - run: node --check web/app.js
       - run: node --check web/research.js
       - run: node --check web/attractor.js
+      - run: node --check web/observations.js
       - run: node --test tests/attractor-model.test.cjs
       - run: python analysis/validate_attractor.py --check
