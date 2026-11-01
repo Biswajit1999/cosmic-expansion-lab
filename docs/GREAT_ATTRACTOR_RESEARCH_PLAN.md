@@ -75,7 +75,7 @@ The table supplies RA, DEC, standardized brightness, zHEL, zCMB, zHD, VPEC, unce
 
 Our existing full-covariance expansion fit is valid for its documented compressed likelihood. A flow experiment cannot simply replace zHD with zCMB and retain every uncertainty assumption unchanged. Audit the released covariance's peculiar-velocity terms, group redshifts, redshift-dependent standardization/bias corrections and calibrator correlations. Obtain the component products needed to replace the relevant uncertainty contributions without double counting. Until this is done, alternative-redshift fits are sensitivity diagnostics, not a validated new likelihood.
 
-We have not yet ingested independent distance-tracer catalogs, density reconstructions, or Planck numerical maps for this experiment. Cosmicflows-4 offers 55,877 galaxies in 38,065 groups using several methods, but it includes supernovae and shared distance anchors [11]. Concatenating it with Pantheon+ would not create an independent dataset.
+Update, 31 October 2026: the [catalog inventory](CATALOGS.md) now ingests the full 55,877-record Cosmicflows-4 individual-distance table and aggregates 14,140,375 selected primary DESI galaxy spectra. These have not been cross-matched or fitted jointly with Pantheon+. Density reconstructions and Planck numerical maps remain uningested. Cosmicflows-4 includes supernovae and shared distance anchors [11]; concatenating it with Pantheon+ would not create an independent dataset. The published group structure and shared calibration still require reconciliation before the flow likelihood is built.
 
 ## A falsifiable experiment
 

@@ -14,6 +14,10 @@ The imagery is observational; the research figures are generated from the analys
 
 ## Great Attractor research direction
 
+**Version 3.3: [Galaxy catalog observatory](https://biswajit1999.github.io/cosmic-expansion-lab/catalogs.html)** · [Selection, data provenance and limits](docs/CATALOGS.md)
+
+The inventory now processes **14,140,375 selected primary DESI galaxy spectra** through server-side sky/redshift aggregation and includes all **55,877 Cosmicflows-4 individual distance records**. Redshift and distance/method filters, Galactic sky counts, individual distance uncertainties, CSV exports and shareable selections support a real data-readiness assessment. Full DESI spectra were not downloaded; the CF4 table was. This is an inventory, not a new flow fit or attractor detection. Rebuild using `python analysis/catalog_scale.py --fetch`; cached inputs allow offline regeneration without that flag.
+
 **Version 3.2: [Published Laniakea reconstruction](https://biswajit1999.github.io/cosmic-expansion-lab/great-attractor.html#reconstruction)** and a golden-trajectory rendering option. The credited 2014 basin visualization is separate from the telescope images and our synthetic trajectories. Golden mode shows all 480 tracer paths over 0–6 Gyr, with elapsed segments highlighted; sharing and exports preserve the selected rendering. The numerical solver is unchanged.
 
 **Version 3.1: [Explore real telescope observations](https://biswajit1999.github.io/cosmic-expansion-lab/great-attractor.html#observations)** · [Evidence requirements and roadmap](docs/OBSERVATIONS.md)

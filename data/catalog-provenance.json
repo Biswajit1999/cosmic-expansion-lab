@@ -1,0 +1,45 @@
+{
+  "snapshot_date": "2026-10-31",
+  "expected_cf4_rows": 55877,
+  "expected_desi_rows": 14140375,
+  "inputs": [
+    {
+      "id": "cf4",
+      "cache_path": "data/catalogs/cf4-table2.txt",
+      "url": "https://content.cld.iop.org/journals/0004-637X/944/1/94/revision1/apjac94d8t2_mrt.txt",
+      "sha256": "a42eba650c70ccb9e2624c4d8287ca54a637ce018870eb289f648325b20191ed",
+      "bytes": 10731977
+    },
+    {
+      "id": "desi_bins",
+      "cache_path": "data/catalogs/desi-test.csv",
+      "url": "https://datalab.noirlab.edu/tap/sync",
+      "sha256": "3088524d1d169f803a466da13d773e11b7c34e03d964e07d5f7ef7a68701d30f",
+      "bytes": 470074,
+      "query": "SELECT FLOOR(glon/5) AS lon_bin, FLOOR((glat+90)/5) AS lat_bin, FLOOR(z/0.05) AS z_bin, COUNT(*) AS n FROM desi_dr1.zpix WHERE zcat_primary='true' AND spectype='GALAXY' AND zwarn=0 AND z>0 AND z<2 AND glon>=0 AND glon<360 AND glat>=-90 AND glat<90 GROUP BY 1,2,3",
+      "maxrec": 200000
+    },
+    {
+      "id": "desi_count",
+      "cache_path": "data/catalogs/desi-count.csv",
+      "url": "https://datalab.noirlab.edu/tap/sync",
+      "sha256": "dea382b4ba4978179913074167b20d1c641b9ecdb4f44a3f7d7bd79d2cdab9e0",
+      "bytes": 63,
+      "query": "SELECT COUNT(*) AS n, MIN(z) AS z_min, MAX(z) AS z_max FROM desi_dr1.zpix WHERE zcat_primary='true' AND spectype='GALAXY' AND zwarn=0 AND z>0 AND z<2 AND glon>=0 AND glon<360 AND glat>=-90 AND glat<90",
+      "maxrec": 2
+    }
+  ],
+  "selection": {
+    "desi": "All survey/program entries with zcat_primary=true, spectype=GALAXY, zwarn=0, 0<z<2 and valid Galactic coordinate ranges. One preferred spectrum per target according to the catalog flag; not an independent identity audit.",
+    "cf4": "All published Table 2 records; all 55,877 PGC identifiers are unique in this table."
+  },
+  "limitations": [
+    "DESI individual spectra were processed remotely into counts; their full individual records are not stored here.",
+    "Five-degree cells have unequal solid angle. Counts trace both survey selection and structure, not completeness-corrected density.",
+    "DESI barycentric redshifts and CF4 CMB-frame systemic velocities have not been frame-matched or cross-matched.",
+    "CF4 combined moduli already share a calibration scale; per-row errors are not a full independent covariance model.",
+    "CF4 method flags overlap. Counts across methods must not be added as independent galaxies.",
+    "No peculiar velocity, dark matter mass, dark energy parameter or Great Attractor detection is fitted by this inventory."
+  ],
+  "canonical_desi_rows_sha256": "d1d0468cd40c49e17298872220ed709d7cbf2e2759e1d354f2c00199370d49f2"
+}

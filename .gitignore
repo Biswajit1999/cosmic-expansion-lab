@@ -5,3 +5,4 @@ data/*.npz
 data/Pantheon+SH0ES.dat
 data/README
 *.tar.gz
+data/catalogs/
