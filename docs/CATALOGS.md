@@ -49,6 +49,8 @@ The exploratory cone is centred at Galactic `(l,b)=(325°,−7°)` with a 20° g
 
 The standalone [PDF figure](../results/catalog-coverage.pdf) compares the DESI low-redshift footprint (253,545 selected spectra at 0<z<0.05) with the CF4 40–100 Mpc distance shell (8,861 records). These are different selections, not identical volumes or matched objects. Reproduce it with `python analysis/plot_catalog_coverage.py` after building the inventory.
 
+Each coloured square represents **a count in a 5° × 5° patch**, not a galaxy image. White squares have no entries passing that panel's selection; gaps also reflect survey targeting and Galactic obscuration. The colour scales differ between panels, so equal colours do not mean equal counts. The 5° bins are intentionally discrete: increasing PNG resolution makes labels clearer but cannot reveal sky detail that was never retained in the aggregate.
+
 Run `python analysis/catalog_scale.py --fetch` to fetch missing inputs, validate and rebuild. The default command without `--fetch` works offline with the source cache. The CF4 source is hash pinned. DESI is a live public database: response byte order may change, so canonical bins and counts must match the archived snapshot before regeneration. If the catalog changes, deliberately curate a new snapshot; do not silently relabel it as the old one.
 
 The browser loads complete CF4 normalized records and the DESI binned inventory. It filters locally, paginates the record table, exports the selected records/bins and shares query parameters. It does not draw millions of invented particles as if each had a measured 3D trajectory. Full raw DESI records, per-object spectra and their error distributions are not part of this release.
