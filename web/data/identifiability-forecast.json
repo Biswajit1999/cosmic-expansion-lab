@@ -1,0 +1,250 @@
+{
+  "status": "Conditional footprint forecast only; no observed flow amplitude fitted",
+  "source": "Cosmicflows-4 individual-galaxy Table 2; same pinned release as catalogs.html",
+  "source_snapshot": "2026-10-31",
+  "source_normalized_cf4_sha256": "f1cfda5d0acb5f14878eb7b963db556f622f32a49075125de9e3d6a82ccb10e7",
+  "selection": "40 <= 10**((mu-25)/5) <= 100 Mpc; one smallest-sigma_mu galaxy per group-reference PGC for primary forecast",
+  "counts": {
+    "shell_records": 8861,
+    "group_representatives": 6777,
+    "representatives_in_20deg_cone": 86,
+    "cone_near_40_70_mpc": 49,
+    "cone_far_70_100_mpc": 37
+  },
+  "assumptions": {
+    "H0_kms_mpc": 70.0,
+    "sigma_v_kms": 250.0,
+    "norma_direction_galactic_deg": [
+      325.0,
+      -7.0
+    ],
+    "fiducial_center_mpc": 70,
+    "fiducial_width_mpc": 30,
+    "local_template": "3D Gaussian-gradient inward flow, projected radially; amplitude is axial peak speed at one width",
+    "nuisance": "3-component constant bulk velocity; 5-component symmetric trace-free shear per 100 Mpc; unrestricted global distance-modulus offset",
+    "modulus_linearization": "dmu/dv = -(5/ln10)/(H0*D) at fixed CMB-frame systemic velocity; first-order low-z approximation",
+    "noise": "quoted marginal sigma_mu in quadrature with 250 km/s dispersion transformed to modulus; rows treated independent after one-per-group thinning"
+  },
+  "fiducial_cases": {
+    "group_representatives": {
+      "none": {
+        "sigma_amplitude_kms": 94.78269265206418,
+        "retained_information_fraction": 1.0,
+        "raw_information_inverse_kms2": 0.00011131198191385915,
+        "marginal_information_inverse_kms2": 0.00011131198191385915
+      },
+      "bulk_scale": {
+        "sigma_amplitude_kms": 97.94506719193511,
+        "retained_information_fraction": 0.9364680125703404,
+        "raw_information_inverse_kms2": 0.00011131198191385915,
+        "marginal_information_inverse_kms2": 0.00010424011047813734
+      },
+      "bulk_shear_scale": {
+        "sigma_amplitude_kms": 98.14137608995507,
+        "retained_information_fraction": 0.9327253884213024,
+        "raw_information_inverse_kms2": 0.00011131198191385915,
+        "marginal_information_inverse_kms2": 0.00010382351156654925
+      }
+    },
+    "all_records_naive": {
+      "none": {
+        "sigma_amplitude_kms": 83.30340316332708,
+        "retained_information_fraction": 1.0,
+        "raw_information_inverse_kms2": 0.0001441034944211045,
+        "marginal_information_inverse_kms2": 0.0001441034944211045
+      },
+      "bulk_scale": {
+        "sigma_amplitude_kms": 85.35953246200299,
+        "retained_information_fraction": 0.952404485996297,
+        "raw_information_inverse_kms2": 0.0001441034944211045,
+        "marginal_information_inverse_kms2": 0.0001372448145344023
+      },
+      "bulk_shear_scale": {
+        "sigma_amplitude_kms": 85.64530741172582,
+        "retained_information_fraction": 0.9460592636289484,
+        "raw_information_inverse_kms2": 0.0001441034944211045,
+        "marginal_information_inverse_kms2": 0.0001363304458183884
+      }
+    }
+  },
+  "geometry_sensitivity": [
+    {
+      "center_mpc": 50.0,
+      "width_mpc": 20.0,
+      "sigma_amplitude_kms": 153.1269331788374,
+      "retained_information_fraction": 0.5075800366590859,
+      "raw_information_inverse_kms2": 8.402186130725622e-05,
+      "marginal_information_inverse_kms2": 4.264781944250174e-05
+    },
+    {
+      "center_mpc": 60.0,
+      "width_mpc": 20.0,
+      "sigma_amplitude_kms": 139.83154878827878,
+      "retained_information_fraction": 0.9221976421372271,
+      "raw_information_inverse_kms2": 5.54581855637535e-05,
+      "marginal_information_inverse_kms2": 5.114340796410229e-05
+    },
+    {
+      "center_mpc": 70.0,
+      "width_mpc": 20.0,
+      "sigma_amplitude_kms": 142.61407059212337,
+      "retained_information_fraction": 0.981406350767905,
+      "raw_information_inverse_kms2": 5.009869162336172e-05,
+      "marginal_information_inverse_kms2": 4.916717412433003e-05
+    },
+    {
+      "center_mpc": 80.0,
+      "width_mpc": 20.0,
+      "sigma_amplitude_kms": 176.21081718393924,
+      "retained_information_fraction": 0.8912575547648323,
+      "raw_information_inverse_kms2": 3.613529839215203e-05,
+      "marginal_information_inverse_kms2": 3.220585768568699e-05
+    },
+    {
+      "center_mpc": 90.0,
+      "width_mpc": 20.0,
+      "sigma_amplitude_kms": 246.9120595246567,
+      "retained_information_fraction": 0.8247203485402821,
+      "raw_information_inverse_kms2": 1.9888804822674552e-05,
+      "marginal_information_inverse_kms2": 1.64027020454058e-05
+    },
+    {
+      "center_mpc": 50.0,
+      "width_mpc": 30.0,
+      "sigma_amplitude_kms": 101.1342467640887,
+      "retained_information_fraction": 0.31525261839808333,
+      "raw_information_inverse_kms2": 0.0003101307355168363,
+      "marginal_information_inverse_kms2": 9.77695264174061e-05
+    },
+    {
+      "center_mpc": 60.0,
+      "width_mpc": 30.0,
+      "sigma_amplitude_kms": 102.92969389702914,
+      "retained_information_fraction": 0.5962620689771884,
+      "raw_information_inverse_kms2": 0.00015830019681636065,
+      "marginal_information_inverse_kms2": 9.438840287321933e-05
+    },
+    {
+      "center_mpc": 70.0,
+      "width_mpc": 30.0,
+      "sigma_amplitude_kms": 98.14137608995507,
+      "retained_information_fraction": 0.9327253884213024,
+      "raw_information_inverse_kms2": 0.00011131198191385915,
+      "marginal_information_inverse_kms2": 0.00010382351156654925
+    },
+    {
+      "center_mpc": 80.0,
+      "width_mpc": 30.0,
+      "sigma_amplitude_kms": 104.910928740447,
+      "retained_information_fraction": 0.9199289686448107,
+      "raw_information_inverse_kms2": 9.876526686537166e-05,
+      "marginal_information_inverse_kms2": 9.085703008539084e-05
+    },
+    {
+      "center_mpc": 90.0,
+      "width_mpc": 30.0,
+      "sigma_amplitude_kms": 126.52428889190396,
+      "retained_information_fraction": 0.7624345508911352,
+      "raw_information_inverse_kms2": 8.19312575792432e-05,
+      "marginal_information_inverse_kms2": 6.246722157637621e-05
+    },
+    {
+      "center_mpc": 50.0,
+      "width_mpc": 40.0,
+      "sigma_amplitude_kms": 59.661219179213475,
+      "retained_information_fraction": 0.29900546284846824,
+      "raw_information_inverse_kms2": 0.0009395861991410943,
+      "marginal_information_inverse_kms2": 0.000280941406360216
+    },
+    {
+      "center_mpc": 60.0,
+      "width_mpc": 40.0,
+      "sigma_amplitude_kms": 70.8653033386438,
+      "retained_information_fraction": 0.3971462071431147,
+      "raw_information_inverse_kms2": 0.0005013976334617751,
+      "marginal_information_inverse_kms2": 0.00019912816839987764
+    },
+    {
+      "center_mpc": 70.0,
+      "width_mpc": 40.0,
+      "sigma_amplitude_kms": 77.25438413468216,
+      "retained_information_fraction": 0.6036375427137042,
+      "raw_information_inverse_kms2": 0.0002775731717874525,
+      "marginal_information_inverse_kms2": 0.00016755358734102673
+    },
+    {
+      "center_mpc": 80.0,
+      "width_mpc": 40.0,
+      "sigma_amplitude_kms": 82.88822316051208,
+      "retained_information_fraction": 0.7716604911486832,
+      "raw_information_inverse_kms2": 0.00018862014529822128,
+      "marginal_information_inverse_kms2": 0.00014555071396136143
+    },
+    {
+      "center_mpc": 90.0,
+      "width_mpc": 40.0,
+      "sigma_amplitude_kms": 92.51381284799254,
+      "retained_information_fraction": 0.7413999799478616,
+      "raw_information_inverse_kms2": 0.00015759203713642175,
+      "marginal_information_inverse_kms2": 0.00011683873317288573
+    }
+  ],
+  "scatter_sensitivity": [
+    {
+      "sigma_v_kms": 150.0,
+      "sigma_amplitude_kms": 92.88573032090561,
+      "retained_information_fraction": 0.93711635411539,
+      "raw_information_inverse_kms2": 0.00012368256482796214,
+      "marginal_information_inverse_kms2": 0.00011590495421922025
+    },
+    {
+      "sigma_v_kms": 250.0,
+      "sigma_amplitude_kms": 98.14137608995507,
+      "retained_information_fraction": 0.9327253884213024,
+      "raw_information_inverse_kms2": 0.00011131198191385915,
+      "marginal_information_inverse_kms2": 0.00010382351156654925
+    },
+    {
+      "sigma_v_kms": 400.0,
+      "sigma_amplitude_kms": 107.5303322113318,
+      "retained_information_fraction": 0.9217956224509749,
+      "raw_information_inverse_kms2": 9.382171851087789e-05,
+      "marginal_information_inverse_kms2": 8.648444941415484e-05
+    }
+  ],
+  "method_coverage_sensitivity": [
+    {
+      "selection": "exclude_FP_present",
+      "representatives": 5254,
+      "sigma_amplitude_kms": 115.28174745627808,
+      "retained_information_fraction": 0.9255801604355528,
+      "raw_information_inverse_kms2": 8.129519198987487e-05,
+      "marginal_information_inverse_kms2": 7.524521684462745e-05
+    },
+    {
+      "selection": "exclude_TF_present",
+      "representatives": 1730,
+      "sigma_amplitude_kms": 168.20302357571862,
+      "retained_information_fraction": 0.9302449331592119,
+      "raw_information_inverse_kms2": 3.799575601155474e-05,
+      "marginal_information_inverse_kms2": 3.5345359511302463e-05
+    },
+    {
+      "selection": "SN_Ia_present_only",
+      "representatives": 272,
+      "sigma_amplitude_kms": 341.3223024189387,
+      "retained_information_fraction": 0.8164937085379443,
+      "raw_information_inverse_kms2": 1.0512786008183918e-05,
+      "marginal_information_inverse_kms2": 8.5836236348879e-06
+    }
+  ],
+  "limitations": [
+    "No measured peculiar velocities, attractor amplitude, mass, density template or statistical significance have been inferred.",
+    "The Gaussian-gradient local template is an illustrative spatial hypothesis, not a reconstruction of the Great Attractor.",
+    "The one-row-per-group rule discards information and still ignores inter-group calibration and spatial covariance; reported errors are conditional and may be optimistic.",
+    "Selecting the shell using observed moduli is unsuitable as a final likelihood selection without a survey selection model.",
+    "Absolute calibration, method-specific shifts, redshift uncertainty, nonlinear flow and template uncertainty are not propagated.",
+    "Method-presence cuts are footprint stress tests; the quoted combined moduli are not independent method-specific distances.",
+    "The all-records-naive case deliberately shows the effect of treating group members as independent; it is not an acceptable inference."
+  ]
+}

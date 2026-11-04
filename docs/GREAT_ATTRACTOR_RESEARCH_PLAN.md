@@ -130,7 +130,7 @@ Project the fitted velocity alternatives into kSZ temperature templates using an
 - **Evidence of a systematic:** the preferred interpretation changes with one tracer, calibration choice, group assignment or selection model beyond the mock expectation. Investigate it before making a cosmological claim.
 - **Possible tension with ΛCDM:** only after the above checks, compare an explicitly defined statistic with an appropriate simulation ensemble and account for the search procedure. A large fitted flow or a visually aligned CMB patch is insufficient.
 
-Completed now: input audit script, JSON inventory, PNG/PDF sampling figure and this research design. Next implementation milestone: cross-catalog provenance and identity matching, a covariance audit, and a mock-tested likelihood. The Planck analysis follows the feasibility forecast. No empirical answer to the model-comparison question has yet been computed.
+Completed now: input audit, catalog inventory, this research design, and the [conditional CF4 survey-geometry forecast](IDENTIFIABILITY_FORECAST.md) with reproducible code, JSON grid and figure. The forecast uses real group-representative positions and quoted marginal errors, but no measured velocity residuals or density-derived template. Next implementation milestone: cross-catalog provenance and identity matching, a covariance audit, and a mock-tested selection-aware likelihood. The Planck analysis follows a separate feasibility forecast. No empirical answer to the model-comparison question has yet been computed.
 
 Reproduce the completed audit:
 

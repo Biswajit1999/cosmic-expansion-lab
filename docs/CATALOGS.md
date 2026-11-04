@@ -59,6 +59,8 @@ Data citations, required DESI acknowledgment text and transformations are record
 
 ## Next inference stage
 
+The [conditional identifiability forecast](IDENTIFIABILITY_FORECAST.md) now turns the CF4 distance footprint into a predeclared survey-design calculation. It compares a toy localized flow response with external bulk, shear and distance-scale freedom, using one galaxy per published group reference. Its **98.14 km/s** fiducial value is the conditional one-sigma *error on an assumed template amplitude*, not a fitted velocity or detection. This step does not reconcile DESI and CF4 or replace a calibrated, selection-aware flow likelihood.
+
 This release replaces a small illustrative sample with a measured inventory at survey scale. It does not solve the Great Attractor inverse problem. The next stage is to reconcile catalog identities and groups, compare redshift frames, obtain covariance and selection information, and implement a forward likelihood in distance-indicator observables. Compare localized convergence with external-flow alternatives using injected mocks and held-out groups/methods, as specified in the [research plan](GREAT_ATTRACTOR_RESEARCH_PLAN.md).
 
 The 126-record local example highlights why adding millions of distant redshifts alone does not resolve missing distance information near the target. A billion-source image catalog may help identify targets and selection effects, but it cannot replace independent distances and uncertainty modeling. The number of simulated particles is a numerical-resolution choice, not an observational sample size.

@@ -14,6 +14,10 @@ The imagery is observational; the research figures are generated from the analys
 
 ## Great Attractor research direction
 
+**Version 3.4: [Conditional flow-identifiability forecast](https://biswajit1999.github.io/cosmic-expansion-lab/forecast.html)** · [Equations, data cuts and limitations](docs/IDENTIFIABILITY_FORECAST.md)
+
+Using the pinned Cosmicflows-4 distance table, the new calculation keeps 8,861 records in an observed-modulus 40–100 Mpc shell and selects one representative for each of 6,777 published group references. It forecasts the precision of a *specified illustrative* local inward-flow amplitude after allowing external bulk motion, shear and a global distance-scale offset. The fiducial **98.14 km/s** is a conditional one-sigma **error forecast**, not a fitted flow amplitude, an attractor detection, or a mass estimate. The downloadable JSON grid and PNG/PDF plot show how that sensitivity changes with the assumed location and width. Run `python analysis/forecast_identifiability.py` to reproduce it. Shared calibration, selection and spatial covariance still need a forward likelihood and mock validation before any empirical claim.
+
 **Version 3.3: [Galaxy catalog observatory](https://biswajit1999.github.io/cosmic-expansion-lab/catalogs.html)** · [Selection, data provenance and limits](docs/CATALOGS.md)
 
 The inventory now processes **14,140,375 selected primary DESI galaxy spectra** through server-side sky/redshift aggregation and includes all **55,877 Cosmicflows-4 individual distance records**. Redshift and distance/method filters, Galactic sky counts, individual distance uncertainties, CSV exports and shareable selections support a real data-readiness assessment. Full DESI spectra were not downloaded; the CF4 table was. This is an inventory, not a new flow fit or attractor detection. Rebuild using `python analysis/catalog_scale.py --fetch`; cached inputs allow offline regeneration without that flag.
