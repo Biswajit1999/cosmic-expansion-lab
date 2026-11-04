@@ -50,7 +50,7 @@ class IdentifiabilityForecastTests(unittest.TestCase):
 
     def test_forecast_grid_reproduces_and_is_not_a_detection(self):
         self.assertEqual(self.saved['source_normalized_cf4_sha256'],
-                         hashlib.sha256((ROOT/'web/data/catalogs/cf4.json').read_bytes()).hexdigest())
+                         hashlib.sha256((ROOT/'web/data/catalogs/cf4.json').read_bytes().replace(b'\r\n', b'\n')).hexdigest())
         self.assertEqual(len(self.saved['geometry_sensitivity']), 15)
         for point in self.saved['geometry_sensitivity']:
             recomputed = forecast(self.grouped, point['center_mpc'], point['width_mpc'])

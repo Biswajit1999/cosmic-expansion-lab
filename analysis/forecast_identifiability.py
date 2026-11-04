@@ -6,6 +6,7 @@ The toy local template is not a fitted matter-density reconstruction.
 import json
 import hashlib
 import shutil
+from datetime import datetime, timezone
 from pathlib import Path
 
 import matplotlib
@@ -130,7 +131,7 @@ def produce():
         'status': 'Conditional footprint forecast only; no observed flow amplitude fitted',
         'source': 'Cosmicflows-4 individual-galaxy Table 2; same pinned release as catalogs.html',
         'source_snapshot': '2026-10-31',
-        'source_normalized_cf4_sha256': hashlib.sha256(source_path.read_bytes()).hexdigest(),
+        'source_normalized_cf4_sha256': hashlib.sha256(source_path.read_bytes().replace(b'\r\n', b'\n')).hexdigest(),
         'selection': '40 <= 10**((mu-25)/5) <= 100 Mpc; one smallest-sigma_mu galaxy per group-reference PGC for primary forecast',
         'counts': {'shell_records': len(rows), 'group_representatives': len(grouped),
                    'representatives_in_20deg_cone': int(cone.sum()),
@@ -180,7 +181,8 @@ def produce():
              ha='left', va='bottom', fontsize=9)
     for extension in ('png', 'pdf'):
         output = ROOT/f'results/identifiability-forecast.{extension}'
-        fig.savefig(output, dpi=180)
+        metadata = {'CreationDate': datetime(2026, 11, 4, tzinfo=timezone.utc)} if extension == 'pdf' else None
+        fig.savefig(output, dpi=180, metadata=metadata)
         shutil.copyfile(output, ROOT/f'web/assets/identifiability-forecast.{extension}')
     plt.close(fig)
     print(f'Wrote forecast for {len(rows):,} CF4 records and {len(grouped):,} group representatives')

@@ -2,7 +2,7 @@
   "status": "Conditional footprint forecast only; no observed flow amplitude fitted",
   "source": "Cosmicflows-4 individual-galaxy Table 2; same pinned release as catalogs.html",
   "source_snapshot": "2026-10-31",
-  "source_normalized_cf4_sha256": "f1cfda5d0acb5f14878eb7b963db556f622f32a49075125de9e3d6a82ccb10e7",
+  "source_normalized_cf4_sha256": "2c78fc7d189407d59768dcde8e1fc372925ae7eee3332cf7c5d26f180bb27731",
   "selection": "40 <= 10**((mu-25)/5) <= 100 Mpc; one smallest-sigma_mu galaxy per group-reference PGC for primary forecast",
   "counts": {
     "shell_records": 8861,
