@@ -6,6 +6,10 @@ An interactive observational-cosmology website and reproducible Python analysis 
 
 ## Research evidence and downloads
 
+
+- Start with [Attractor validation](results/attractor-validation.json), [Flow input audit](results/flow-input-audit.json), [Catalog provenance](data/catalog-provenance.json).
+- [View Catalog coverage](results/catalog-coverage.png).
+
 [Open the evidence browser file](evidence.html) for 8 selected files, including [`attractor-validation.json`](results/attractor-validation.json). Each file has a download link and SHA-256 digest. Serve this checkout with `python -m http.server` to view the static browser.
 
 Rebuild the inventory and browser with `python scripts/evidence_catalog.py` and `python scripts/render_evidence_page.py`.
