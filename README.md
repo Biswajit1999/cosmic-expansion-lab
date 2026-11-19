@@ -4,6 +4,12 @@ An interactive observational-cosmology website and reproducible Python analysis 
 
 ![Pantheon+ Hubble diagram](results/hubble-diagram.png)
 
+## Research evidence and downloads
+
+[Open the evidence browser file](evidence.html) for 8 selected files, including [`attractor-validation.json`](results/attractor-validation.json). Each file has a download link and SHA-256 digest. Serve this checkout with `python -m http.server` to view the static browser.
+
+Rebuild the inventory and browser with `python scripts/evidence_catalog.py` and `python scripts/render_evidence_page.py`.
+
 ## Version 2: deeper investigations
 
 **[Open the public website](https://biswajit1999.github.io/cosmic-expansion-lab/)** · [Research methods and results](docs/RESEARCH.md) · [Executed notebook](notebooks/expansion-investigations.ipynb)
