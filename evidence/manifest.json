@@ -1,0 +1,126 @@
+{
+  "schema": 1,
+  "project": "Cosmic Expansion Lab",
+  "repository": "https://github.com/Biswajit1999/cosmic-expansion-lab",
+  "files": [
+    {
+      "label": "Catalog provenance",
+      "path": "data/catalog-provenance.json",
+      "role": "Data and provenance",
+      "bytes": 2648,
+      "sha256": "fae408d7ea351930cf00436b7b1e2e607de5c2b7c723487c4489ff1e3b881540",
+      "hash_basis": "LF-normalised text",
+      "format": "JSON",
+      "keys": [
+        "snapshot_date",
+        "expected_cf4_rows",
+        "expected_desi_rows",
+        "inputs",
+        "selection",
+        "limitations",
+        "canonical_desi_rows_sha256"
+      ],
+      "arrays": {
+        "inputs": 3,
+        "limitations": 6
+      }
+    },
+    {
+      "label": "Provenance",
+      "path": "data/provenance.json",
+      "role": "Data and provenance",
+      "bytes": 1140,
+      "sha256": "379820b89326cbb2e11b85a7a60cde43e14ced9ddfb1a1975df25099c46f35ef",
+      "hash_basis": "LF-normalised text",
+      "format": "JSON",
+      "keys": [
+        "repository",
+        "commit",
+        "files"
+      ],
+      "arrays": {
+        "files": 3
+      }
+    },
+    {
+      "label": "Attractor validation",
+      "path": "results/attractor-validation.json",
+      "role": "Tables and numerical results",
+      "bytes": 2306,
+      "sha256": "a467b71ff558c66addb5208a69c2d053916192ad6d20370fdc70afd8a7f3d6c3",
+      "hash_basis": "LF-normalised text",
+      "format": "JSON",
+      "keys": [
+        "model_version",
+        "status",
+        "comparison",
+        "interval_gyr",
+        "cases",
+        "interpretation"
+      ],
+      "arrays": {
+        "interval_gyr": 2,
+        "cases": 5
+      }
+    },
+    {
+      "label": "Flow input audit",
+      "path": "results/flow-input-audit.json",
+      "role": "Tables and numerical results",
+      "bytes": 1707,
+      "sha256": "70bcdde7fb1edb210185a65f0209608a34f53f2975762b5594e87a43ce71e06d",
+      "hash_basis": "LF-normalised text",
+      "format": "JSON",
+      "keys": [
+        "status",
+        "input_commit",
+        "input_sha256",
+        "selection",
+        "selection_purpose",
+        "total_light_curve_rows",
+        "valid_coordinate_rows"
+      ],
+      "arrays": {
+        "redshift_bin_edges": 5,
+        "redshift_bin_rows": 4,
+        "limitations": 5
+      }
+    },
+    {
+      "label": "Catalog coverage",
+      "path": "results/catalog-coverage.png",
+      "role": "Figures",
+      "bytes": 300589,
+      "sha256": "371b43d34d35e92c3a2fff592093869bf2176f1e2b852e6011dd936dd730f115",
+      "hash_basis": "exact bytes",
+      "format": "PNG"
+    },
+    {
+      "label": "Redshift sensitivity",
+      "path": "results/redshift-sensitivity.png",
+      "role": "Figures",
+      "bytes": 69938,
+      "sha256": "a68e674ef446bc86230ca45c9b9c641d45321f60bdf861faf808516a8f2f9d74",
+      "hash_basis": "exact bytes",
+      "format": "PNG"
+    },
+    {
+      "label": "Expansion history",
+      "path": "results/expansion-history.png",
+      "role": "Figures",
+      "bytes": 135201,
+      "sha256": "fbb38c6e32dba224474b8fcc4b6acd4b0fe8556c52b56afaab36a97177275cc9",
+      "hash_basis": "exact bytes",
+      "format": "PNG"
+    },
+    {
+      "label": "Flow input footprint",
+      "path": "results/flow-input-footprint.png",
+      "role": "Figures",
+      "bytes": 331553,
+      "sha256": "3057a8c73b31b4db2da139a598d5033f8538b9ff997be9044fd5390e82a237db",
+      "hash_basis": "exact bytes",
+      "format": "PNG"
+    }
+  ]
+}

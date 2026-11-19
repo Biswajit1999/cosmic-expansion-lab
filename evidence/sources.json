@@ -1,0 +1,46 @@
+{
+  "project": "Cosmic Expansion Lab",
+  "repository": "https://github.com/Biswajit1999/cosmic-expansion-lab",
+  "files": [
+    {
+      "label": "Catalog provenance",
+      "path": "data/catalog-provenance.json",
+      "role": "Data and provenance"
+    },
+    {
+      "label": "Provenance",
+      "path": "data/provenance.json",
+      "role": "Data and provenance"
+    },
+    {
+      "label": "Attractor validation",
+      "path": "results/attractor-validation.json",
+      "role": "Tables and numerical results"
+    },
+    {
+      "label": "Flow input audit",
+      "path": "results/flow-input-audit.json",
+      "role": "Tables and numerical results"
+    },
+    {
+      "label": "Catalog coverage",
+      "path": "results/catalog-coverage.png",
+      "role": "Figures"
+    },
+    {
+      "label": "Redshift sensitivity",
+      "path": "results/redshift-sensitivity.png",
+      "role": "Figures"
+    },
+    {
+      "label": "Expansion history",
+      "path": "results/expansion-history.png",
+      "role": "Figures"
+    },
+    {
+      "label": "Flow input footprint",
+      "path": "results/flow-input-footprint.png",
+      "role": "Figures"
+    }
+  ]
+}
